@@ -7,16 +7,15 @@ public class stream {
 		char[] send = {'a','b','c','d','e'};  
 		
 		
-		short LFSR = start;
 		Integer x = 0;
 		
 		
 		do{
 		
 		
-			short bit = (short) ((LFSR >> 0) ^ (LFSR >> 2)  ^ (LFSR >> 3) ^ (LFSR >> 5) & 1);
-			LFSR =  (short) ((short)(LFSR >> 1) | bit << 15);
-			System.out.println("line " + x.toString() + " " + LFSR);		
+			short bit = (short) ((LFSR.register >> 0) ^ (LFSR.register >> 2)  ^ (LFSR.register >> 3) ^ (LFSR.register >> 5) & 1);
+			LFSR.register =  (short) ((short)(LFSR.register >> 1) | bit << 15);
+			System.out.println("line " + x.toString() + " " + LFSR.tobits());		
 		}while(x < 10);
 		
 		System.out.println("Andrew Attwood");
